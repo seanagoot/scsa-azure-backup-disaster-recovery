@@ -4,9 +4,8 @@ RESOURCE_GROUP="rg-scsa-backup-krc"
 VAULT_NAME="rsv-scsa-backup-krc"
 VM_NAME="vm-scsa-app01"
 
-# Trigger an on-demand backup.
-# Update RETAIN_UNTIL before running if needed.
-RETAIN_UNTIL="28-08-2026"
+# Set retention date to 7 days from today
+RETAIN_UNTIL=$(date -d "+7 days" +"%d-%m-%Y")
 
 az backup protection backup-now \
   --resource-group "$RESOURCE_GROUP" \
